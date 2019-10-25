@@ -1,0 +1,14 @@
+<h1>Scrape!</h1>
+<h2><i>Scrape Articles from Magicseaweed</i></h2>
+<div id="articles">
+  {{#each artcicles}}
+  <div>
+    <h4><a href="{{this.link}}">{{this.title}}</a></h4>
+    <p data-id={{this.id}}>{{this.summary}}</p>
+  </div>
+  {{/each}}
+</div>
+<div id="notes"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
+<script src="app.js"></script>

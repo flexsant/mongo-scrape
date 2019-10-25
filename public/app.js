@@ -1,11 +1,11 @@
 // Grab the articles as a json
-$.getJSON("/articles", function(data) {
-  // For each one
-  for (var i = 0; i < data.length; i++) {
-    // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
-  }
-});
+// $.getJSON("/articles", function(data) {
+//   // For each one
+//   for (var i = 0; i < data.length; i++) {
+//     // Display the apropos information on the page
+//     $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+//   }
+// });
 
 
 // Whenever someone clicks a p tag
@@ -70,3 +70,9 @@ $(document).on("click", "#savenote", function() {
   $("#titleinput").val("");
   $("#bodyinput").val("");
 });
+
+
+// an on click function for when an article is clicked the calls another function that displays lal the notes
+//function that displays the notes inside of that function you will want to empty the note div do an ajax call to retrieve the notes and then loop over all the notes and display on screen
+//the on click for the save notes should be just the same as the class activity
+//add a on click fuction for deleteing notes that does an ajax call to your delete route on the back end
