@@ -120,7 +120,18 @@ app.post("/articles/:id", function(req, res) {
       res.json(err);
     });
 });
+// delete a note
+app.delete("/delete/:id", function(req, res) {
+  db.Note.remove({ _id: req.params.id }).then(function(dbNote) {
+    res.json(dbNote);
+  });
+});
 
+app.get("/", function(req, res) {
+  db.Article.find({}).then(function(dbArticles) {
+    res.render("index", { articles: dbArticles });
+  });
+});
 // Start the server
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
