@@ -120,8 +120,20 @@ app.post("/articles/:id", function(req, res) {
       res.json(err);
     });
 });
+
+// Add a note
+app.get("/notes/:id", function (req, res) {
+  db.Note.find({ _id: req.params.id }).populate("Note")
+  .then(function (dbNote) {
+    res.json(dbNote)
+  })
+  .catch(function (err) {
+    res.json(err)
+  });
+})
+
 // delete a note
-app.delete("/delete/:id", function(req, res) {
+app.delete("/notes/delete/:id", function(req, res) {
   db.Note.remove({ _id: req.params.id }).then(function(dbNote) {
     res.json(dbNote);
   });
@@ -129,9 +141,11 @@ app.delete("/delete/:id", function(req, res) {
 
 app.get("/", function(req, res) {
   db.Article.find({}).then(function(dbArticles) {
-    res.render("index", { articles: dbArticles });
+    res.render("index", { articles: dbArticles })
+  }).catch(function (err) [
+    res.json(err)
+  ]);
   });
-});
 // Start the server
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");

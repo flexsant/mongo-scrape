@@ -1,14 +1,43 @@
-<h1>Scrape!</h1>
-<h2><i>Scrape Articles from Magicseaweed</i></h2>
-<div id="articles">
-  {{#each artcicles}}
-  <div>
-    <h4><a href="{{this.link}}">{{this.title}}</a></h4>
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
+      <h1 class="display-4">Scrape Articles from Magicseaweed</h1>
+      <a class="btn" href="/scrape" role="button" id="scrape">Scrape</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center" id="articles">
+    {{#each articles}}
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src=({image})>
+    <div class="card-body">
+      <p class="card-text"><a href="{{this.link}}">{{this.title}}</a></p>
+      <button class="btn viewAddNote" data-id={{id}} data-toggle="modal" data-target="#viewAddNoteModal">View/Add Notes</button>
     <p data-id={{this.id}}>{{this.summary}}</p>
+  </div>
   </div>
   {{/each}}
 </div>
-<div id="notes"></div>
+
+<div class="modal" tabindex="-1" role="dialog" id="viewandAddNoteModal">
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Notes</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="allArticlesNotes">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
-<script src="app.js"></script>
+
+<script>
+  
+</script>
