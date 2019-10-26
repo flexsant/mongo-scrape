@@ -39,5 +39,23 @@
 </div>
 
 <script>
-  
+  $("#scrape").on("click", function (event) {
+    $.ajax({
+      url: "articles/delete",
+      type: "DELETE"
+    }).then(
+      location.reload()
+    );
+  })
+  $("makeNote").on("click", function (event) {
+    event.preventDefault();
+
+    $("#allArticles").empty()
+
+    queryUrl = "/articles/" + $(this).attr("data-id")
+
+    $.get(queryUrl, function (result) {
+
+    })
+  })
 </script>
